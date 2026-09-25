@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Other Work — Noma · Product Designer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Instrument+Serif:ital@0;1&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#F4F1E9;
+    --cream-dim:#ECE8DC;
+    --black:#0B0B09;
+    --ink:#17160F;
+    --grey-700:#55534A;
+    --grey-500:#87816F;
+    --grey-300:#C9C3AE;
+    --line:#D9D3BF;
+    --yellow:#F4C31C;
+    --yellow-deep:#D9A800;
+    --sans:'Instrument Sans', sans-serif;
+    --serif:'Instrument Serif', serif;
+    --mono:'Space Mono', monospace;
+    --max:1360px;
+    --gutter:clamp(20px,5vw,64px);
+  }
+  :root:not([data-theme="light"]){ color-scheme:light; }
+  *{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{ margin:0; background:var(--cream); color:var(--ink); font-family:var(--sans); -webkit-font-smoothing:antialiased; overflow-x:hidden; }
+  ::selection{ background:var(--yellow); color:var(--black); }
+  a{ color:inherit; } img,svg{ max-width:100%; display:block; }
+  .wrap{ max-width:var(--max); margin:0 auto; padding-left:var(--gutter); padding-right:var(--gutter); }
+  .mono{ font-family:var(--mono); text-transform:uppercase; letter-spacing:.06em; }
+
+  /* TOPBAR */
+  .topbar{ position:sticky; top:0; z-index:40; background:rgba(244,241,233,.86); backdrop-filter:blur(8px); border-bottom:1px solid var(--line); }
+  .topbar .wrap{ display:flex; align-items:center; justify-content:space-between; height:64px; }
+  .back-link{ font-family:var(--mono); font-size:12px; text-decoration:none; display:flex; align-items:center; gap:8px; color:var(--ink); }
+  .back-link:hover .arrow{ transform:translateX(-4px); }
+  .arrow{ transition:transform .2s ease; }
+  .topbar-right{ font-family:var(--mono); font-size:11px; color:var(--grey-500); letter-spacing:.08em; }
+
+  /* HERO */
+  .hero{ padding-top:clamp(56px,8vw,112px); padding-bottom:clamp(56px,8vw,112px); border-bottom:1px solid var(--line); }
+  .hero-tag{ font-family:var(--mono); font-size:12px; letter-spacing:.08em; color:var(--grey-500); margin-bottom:32px; }
+  h1.headline{ font-family:var(--sans); font-weight:700; font-size:clamp(40px,6.4vw,88px); line-height:.98; letter-spacing:-.02em; margin:0 0 clamp(28px,4vw,48px); max-width:16ch; }
+  h1.headline em{ font-family:var(--serif); font-style:italic; font-weight:400; }
+  .hero-sub{ display:grid; grid-template-columns:1.2fr 1fr; gap:56px; align-items:start; border-top:1px solid var(--line); padding-top:28px; }
+  .hero-sub p{ font-size:clamp(16px,1.6vw,19px); line-height:1.6; color:var(--grey-700); max-width:52ch; margin:0; }
+  .hero-meta{ display:flex; flex-direction:column; gap:16px; }
+  .meta-pill{ font-family:var(--mono); font-size:10.5px; color:var(--grey-500); letter-spacing:.06em; padding:12px 0; border-top:1px solid var(--line); }
+  .meta-pill:last-child{ border-bottom:1px solid var(--line); }
+  @media (max-width:820px){ .hero-sub{ grid-template-columns:1fr; gap:32px; } }
+
+  /* SHARED SECTION CHROME */
+  section{ padding-top:clamp(72px,10vw,140px); padding-bottom:clamp(72px,10vw,140px); }
+  .border-top{ border-top:1px solid var(--line); }
+  .eyebrow{ font-family:var(--mono); font-size:12px; letter-spacing:.08em; color:var(--grey-500); margin-bottom:18px; }
+  h2.section-title{ font-family:var(--sans); font-weight:700; letter-spacing:-.02em; font-size:clamp(30px,4.2vw,54px); line-height:1.05; margin:0 0 28px; }
+  h2.section-title em{ font-family:var(--serif); font-style:italic; font-weight:400; }
+
+  /* PROJECT HEADER */
+  .project-number{ font-family:var(--mono); font-size:12px; letter-spacing:.08em; color:var(--grey-500); margin-bottom:12px; }
+  .project-header{ display:grid; grid-template-columns:1fr auto; gap:48px; align-items:start; margin-bottom:clamp(40px,6vw,64px); }
+  .project-header h2{ font-family:var(--sans); font-weight:700; font-size:clamp(34px,5vw,68px); line-height:.98; letter-spacing:-.025em; margin:0 0 10px; }
+  .project-header h2 em{ font-family:var(--serif); font-style:italic; font-weight:400; }
+  .project-header .sub{ font-size:16px; color:var(--grey-500); font-family:var(--mono); letter-spacing:.04em; font-size:12px; }
+  .meta-chips{ display:flex; flex-wrap:wrap; gap:8px; margin-top:20px; }
+  .chip{ font-family:var(--mono); font-size:10px; letter-spacing:.06em; padding:6px 12px; border:1px solid var(--line); color:var(--grey-700); }
+  .chip.role{ background:var(--black); color:var(--cream); border-color:var(--black); }
+  @media (max-width:820px){ .project-header{ grid-template-columns:1fr; gap:20px; } }
+
+  /* EDITORIAL SPLIT */
+  .editorial{ display:grid; grid-template-columns:1fr 1fr; gap:56px; }
+  .editorial p{ font-size:16px; line-height:1.75; color:var(--grey-700); margin:0 0 18px; max-width:54ch; }
+  .editorial p:last-child{ margin:0; }
+  .editorial .lead-block h3{ font-size:clamp(20px,2.4vw,28px); font-weight:700; letter-spacing:-.01em; margin:0 0 20px; line-height:1.15; }
+  @media (max-width:820px){ .editorial{ grid-template-columns:1fr; gap:32px; } }
+
+  /* PROCESS FLOW */
+  .process-flow{ display:flex; flex-direction:column; border:1px solid var(--line); margin:8px 0 0; }
+  .process-step{ display:grid; grid-template-columns:48px 1fr; gap:0; border-bottom:1px solid var(--line); }
+  .process-step:last-child{ border-bottom:none; }
+  .process-num{ font-family:var(--mono); font-size:10px; color:var(--yellow-deep); font-weight:700; padding:18px 16px; border-right:1px solid var(--line); display:flex; align-items:center; justify-content:center; }
+  .process-name{ padding:18px 24px; font-size:15px; font-weight:600; display:flex; align-items:center; }
+
+  /* OUTCOMES */
+  .outcome-block{ border:1px solid var(--line); padding:36px 40px; margin-top:8px; }
+  .outcome-block .mono{ font-size:10px; color:var(--grey-500); display:block; margin-bottom:18px; }
+  .outcome-block p{ font-size:16px; line-height:1.7; color:var(--grey-700); margin:0 0 14px; max-width:62ch; }
+  .outcome-block p:last-child{ margin:0; }
+  .outcome-note{ font-size:13px; color:var(--grey-500); font-style:italic; margin-top:14px !important; }
+
+  /* STAT CALLOUT */
+  .stat-row{ display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--line); border:1px solid var(--line); margin-bottom:1px; }
+  .stat-cell{ background:var(--cream); padding:32px 36px; }
+  .stat-cell .label{ font-family:var(--mono); font-size:10px; color:var(--grey-500); display:block; margin-bottom:12px; }
+  .stat-cell .figure{ font-family:var(--sans); font-weight:700; font-size:clamp(42px,6vw,72px); letter-spacing:-.03em; line-height:1; }
+  .stat-cell p{ margin:8px 0 0; font-size:14px; color:var(--grey-700); line-height:1.5; }
+  @media (max-width:700px){ .stat-row{ grid-template-columns:1fr; } }
+
+  /* DEMONSTRATES LIST */
+  .demonstrates{ display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--line); border:1px solid var(--line); margin-top:8px; }
+  .dem-cell{ background:var(--cream); padding:22px 20px; }
+  .dem-cell .mono{ font-size:9.5px; color:var(--grey-500); display:block; margin-bottom:8px; }
+  .dem-cell p{ margin:0; font-size:14px; font-weight:600; line-height:1.35; }
+  @media (max-width:820px){ .demonstrates{ grid-template-columns:repeat(2,1fr); } }
+  @media (max-width:520px){ .demonstrates{ grid-template-columns:1fr; } }
+
+  /* PLACEHOLDER */
+  .placeholder{ border:1.5px dashed var(--grey-300); background:repeating-linear-gradient(135deg,transparent,transparent 10px,rgba(23,22,15,.025) 10px,rgba(23,22,15,.025) 20px); display:flex; align-items:center; justify-content:center; text-align:center; padding:80px 20px; color:var(--grey-500); border-radius:4px; margin-top:8px; }
+  .placeholder .mono{ font-size:11px; letter-spacing:.08em; line-height:1.7; }
+
+  /* DIVIDER PROJECT */
+  .project-divider{ border:none; border-top:3px solid var(--black); margin:0; }
+
+  /* CODA */
+  .coda{ background:var(--black); color:var(--cream); padding:clamp(64px,10vw,140px) 0; }
+  .coda .eyebrow{ color:var(--grey-300); margin-bottom:24px; }
+  .coda p{ font-family:var(--serif); font-style:italic; font-size:clamp(26px,3.6vw,48px); line-height:1.2; max-width:20ch; margin:0 0 32px; }
+  .industries{ display:flex; flex-wrap:wrap; gap:10px; }
+  .ind-tag{ font-family:var(--mono); font-size:10.5px; letter-spacing:.06em; padding:8px 16px; border:1px solid #2a2a28; color:var(--grey-300); }
+
+  footer{ padding:36px 0; border-top:1px solid var(--line); }
+  footer .wrap{ display:flex; justify-content:space-between; align-items:center; font-family:var(--mono); font-size:11px; color:var(--grey-500); }
+
+  .reveal{ opacity:0; transform:translateY(14px); transition:opacity .7s ease, transform .7s ease; }
+  .reveal.in{ opacity:1; transform:translateY(0); }
+.live-link:hover{background:#F4C31C;border-color:#F4C31C!important;color:#0E0E0C!important;}
+</style>
+<style>/* responsive safety */
+html,body{overflow-x:clip;}
+img,svg,video{max-width:100%;}
+</style>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Ccircle cx=%2750%27 cy=%2750%27 r=%2740%27 fill=%27%23F4C31C%27/%3E%3C/svg%3E">
+<meta name="description" content="Noma Edeki — Product Designer working across fintech, marketplaces and AI products.">
+</head>
+<body>
+
+<div class="site-nav"><style>
+.site-nav .sn-toggle{display:none;width:40px;height:40px;margin-right:-8px;background:none;border:0;cursor:pointer;position:relative;color:inherit;}
+.site-nav .sn-toggle span{position:absolute;left:10px;right:10px;height:1.5px;background:currentColor;transition:transform .3s ease,opacity .2s ease,top .3s ease;}
+.site-nav .sn-toggle span:nth-child(1){top:14px}.site-nav .sn-toggle span:nth-child(2){top:20px}.site-nav .sn-toggle span:nth-child(3){top:26px}
+.site-nav.open .sn-toggle span:nth-child(1){top:20px;transform:rotate(45deg)}
+.site-nav.open .sn-toggle span:nth-child(2){opacity:0}
+.site-nav.open .sn-toggle span:nth-child(3){top:20px;transform:rotate(-45deg)}
+@media(max-width:760px){
+  .site-nav{--sn-panel:#F4F1E9;--sn-fg:#17160F;--sn-line:#D9D3BF;}
+  .site-nav .sn-toggle{display:block;color:var(--sn-fg);}
+  .site-nav .sn-inner{position:relative;}
+  .site-nav .sn-links{position:absolute;top:60px;left:0;right:0;flex-direction:column!important;align-items:stretch!important;justify-content:flex-start!important;gap:0!important;text-align:left;
+    background:var(--sn-panel);border-bottom:1px solid var(--sn-line);padding:8px clamp(20px,4vw,48px) 24px;
+    max-height:0;overflow:hidden;opacity:0;visibility:hidden;transform:translateY(-8px);
+    transition:max-height .45s cubic-bezier(.4,0,.2,1),opacity .3s ease,transform .35s ease,visibility 0s linear .45s;}
+  .site-nav.open .sn-links{max-height:480px;opacity:1;visibility:visible;transform:none;transition:max-height .45s cubic-bezier(.4,0,.2,1),opacity .3s ease,transform .35s ease,visibility 0s;}
+  .site-nav .sn-links a,.site-nav .sn-links a.sn-resume,.site-nav .sn-links a.sn-cta{display:block!important;font-family:'Instrument Sans',sans-serif!important;font-size:20px!important;letter-spacing:-.01em!important;
+    padding:14px 12px!important;margin:0!important;border:0!important;border-bottom:1px solid var(--sn-line)!important;color:var(--sn-fg)!important;background:transparent;
+    opacity:0;transform:translateX(-10px);transition:opacity .3s ease,transform .3s ease,background .2s ease,color .2s ease,padding-left .25s ease;}
+  .site-nav .sn-links a.sn-link::after{display:none;}
+  .site-nav.open .sn-links a{opacity:1;transform:none;}
+  .site-nav.open .sn-links a:nth-child(1){transition-delay:.06s}.site-nav.open .sn-links a:nth-child(2){transition-delay:.11s}
+  .site-nav.open .sn-links a:nth-child(3){transition-delay:.16s}.site-nav.open .sn-links a:nth-child(4){transition-delay:.21s}
+  .site-nav.open .sn-links a:nth-child(5){transition-delay:.26s}
+  .site-nav .sn-inner .sn-links a:hover,.site-nav .sn-inner .sn-links a:focus-visible,.site-nav .sn-inner .sn-links a:active{background:#F4C31C!important;color:#0E0E0C!important;padding-left:20px!important;transition-delay:0s!important;}
+  .site-nav .sn-links a.sn-active{font-weight:600;}
+  .site-nav .sn-links a.sn-active::before{content:'';display:inline-block;width:6px;height:6px;border-radius:50%;background:#F4C31C;margin-right:10px;vertical-align:middle;}
+  .site-nav .sn-links a.sn-cta{border-bottom:0!important;}
+}
+@media(prefers-reduced-motion:reduce){.site-nav .sn-links,.site-nav .sn-links a,.site-nav .sn-toggle span{transition:none!important;}}
+</style><style>
+.site-nav{position:sticky;top:0;z-index:60;background:rgba(244,241,233,.9);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid #D9D3BF;font-family:'Instrument Sans',sans-serif;}
+.site-nav .sn-inner{max-width:1200px;margin:0 auto;padding:0 clamp(20px,4vw,48px);height:60px;display:flex;align-items:center;justify-content:space-between;gap:16px;}
+.site-nav .sn-name{font-weight:700;font-size:15px;letter-spacing:-.01em;color:#17160F;text-decoration:none;white-space:nowrap;}
+.site-nav .sn-links{display:flex;align-items:center;gap:32px;}
+.site-nav .sn-links a{font-size:14px;color:#55534A;text-decoration:none;position:relative;padding-bottom:2px;}
+.site-nav .sn-links a.sn-link::after{content:'';position:absolute;bottom:0;left:0;width:0;height:1px;background:#17160F;transition:width .25s ease;}
+.site-nav .sn-links a.sn-link:hover::after,.site-nav .sn-links a.sn-active::after{width:100%;}
+.site-nav .sn-links a.sn-active{color:#17160F;}
+.site-nav .sn-resume{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.06em;padding:7px 16px;border:1px solid #D9D3BF;transition:border-color .2s,color .2s;}
+.site-nav .sn-resume:hover{border-color:#F2C230;color:#17160F;}
+.site-nav .sn-cta{font-family:'Space Mono',monospace;font-size:13px;letter-spacing:.04em;padding:8px 18px;border:1px solid #17160F;color:#17160F!important;transition:background .2s,color .2s;}
+.site-nav .sn-cta:hover{background:#17160F;color:#F4F1E9!important;}
+
+
+</style>
+  <div class="sn-inner">
+    <a class="sn-name" href="index.html">Noma Edeki</a>
+    <button class="sn-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="sn-links"><span></span><span></span><span></span></button>
+    <div class="sn-links" id="sn-links">
+      <a class="sn-link sn-active" href="index.html#work">Work</a>
+      <a class="sn-link" href="about.html">About</a>
+      <a class="sn-link" href="contact.html">Contact</a>
+      <a class="sn-resume" href="assets/files/Noma-Edeki-Resume.pdf" download="Noma-Edeki-Resume.pdf" data-resume>Resume ↓</a>
+      <a class="sn-cta" href="contact.html">Available →</a>
+    </div>
+  </div>
+</div>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-tag">SELECTED PROJECTS</div>
+    <h1 class="headline">More work, <em>different</em> problems.</h1>
+    <div class="hero-sub">
+      <p>A selection of client projects where I worked across UX, product thinking, responsive web design and implementation handoff. These projects are presented more briefly than my featured case studies, but they reflect the same approach: understand the problem, simplify the experience and design something that can actually be built.</p>
+      <div class="hero-meta">
+        <div class="meta-pill">UX Strategy · User Flows · UI Design</div>
+        <div class="meta-pill">Responsive Web Design</div>
+        <div class="meta-pill">Development Handoff</div>
+        <div class="meta-pill">Client Work</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 01 HENNA PLACE ============ -->
+<section id="henna-place">
+  <div class="wrap">
+    <div class="project-number">01</div>
+    <div class="project-header">
+      <div>
+        <h2>Henna <em>Place</em></h2>
+        <div class="sub">Service Business · Booking Experience · Web</div>
+        <div class="meta-chips">
+          <span class="chip role">Product Designer</span>
+          <span class="chip">UX Strategy</span>
+          <span class="chip">User Flow</span>
+          <span class="chip">UI Design</span>
+          <span class="chip">Responsive Design</span>
+        </div>
+        <a href="https://thehennaplace.com.ng" target="_blank" rel="noopener" class="live-link" style="display:inline-flex;align-items:center;gap:8px;margin-top:20px;font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.06em;padding:10px 18px;border:1px solid currentColor;color:inherit;text-decoration:none;">VISIT LIVE SITE ↗ &nbsp;thehennaplace.com.ng</a>
+      </div>
+    </div>
+
+    <div class="eyebrow">THE CHALLENGE</div>
+    <div class="editorial">
+      <div class="lead-block">
+        <h3>Simplifying the booking experience for a service business.</h3>
+      </div>
+      <div>
+        <p>Henna Place's existing booking experience created friction between a customer deciding to book and actually completing the booking. There was also unnecessary manual work involved in managing bookings behind the scenes.</p>
+        <p>The goal was to make the experience more straightforward while reducing the amount of manual coordination required from the business.</p>
+      </div>
+    </div>
+
+    <div class="eyebrow" style="margin-top:clamp(48px,7vw,80px);">WHAT I WORKED ON</div>
+    <div class="editorial">
+      <div class="lead-block">
+        <h3>A clearer path from decision to confirmation.</h3>
+      </div>
+      <div>
+        <p>I redesigned the booking journey around a single, obvious path — removing unnecessary steps and making the next action clear at every stage. I also considered the operational side of the experience, helping reduce the need for manual booking coordination.</p>
+      </div>
+    </div>
+
+    <div class="process-flow" style="margin-top:28px;max-width:520px;">
+      <div class="process-step"><div class="process-num">01</div><div class="process-name">Service selection</div></div>
+      <div class="process-step"><div class="process-num">02</div><div class="process-name">Booking details</div></div>
+      <div class="process-step"><div class="process-num">03</div><div class="process-name">Payment</div></div>
+      <div class="process-step"><div class="process-num">04</div><div class="process-name">Confirmation</div></div>
+    </div>
+
+    <div style="margin-top:clamp(40px,6vw,64px);display:flex;flex-direction:column;gap:24px;">
+      <img src="assets/images/04362502d0.webp" alt="Henna Place website homepage on a laptop" style="width:100%;height:auto;display:block;border-radius:8px;"/>
+      <img src="assets/images/2bb352ac62.webp" alt="Henna Place website — homepage, services and products pages" style="width:100%;height:auto;display:block;border-radius:8px;"/>
+    </div>
+
+    <div style="margin-top:clamp(48px,7vw,80px);">
+      <div class="eyebrow">OUTCOME</div>
+      <div class="stat-row">
+        <div class="stat-cell">
+          <span class="label">Booking completion (reported)</span>
+          <div class="figure">80<span style="font-size:.45em;letter-spacing:0;">%</span></div>
+          <p>Approximately 80 of 100 users completed their booking following the redesign.</p>
+        </div>
+        <div class="stat-cell">
+          <span class="label">Result</span>
+          <div class="figure" style="font-size:clamp(22px,2.8vw,36px);line-height:1.2;font-family:var(--serif);font-style:italic;font-weight:400;">Drop-off reduced compared with the previous website.</div>
+        </div>
+      </div>
+      <div class="outcome-block">
+        <span class="mono">A note on this data</span>
+        <p class="outcome-note">This was based on client feedback rather than analytics I personally had access to. I'm presenting it as a reported outcome rather than claiming independently measured conversion data.</p>
+      </div>
+    </div>
+
+    <div style="margin-top:clamp(40px,6vw,56px);">
+      <div class="eyebrow">WHAT THIS PROJECT DEMONSTRATES</div>
+      <div class="demonstrates">
+        <div class="dem-cell"><span class="mono">Skill</span><p>Conversion-focused UX</p></div>
+        <div class="dem-cell"><span class="mono">Skill</span><p>Booking flow design</p></div>
+        <div class="dem-cell"><span class="mono">Skill</span><p>Business process improvement</p></div>
+        <div class="dem-cell"><span class="mono">Skill</span><p>Responsive web design</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DIVIDER ============ -->
+<hr class="project-divider">
+
+<!-- ============ 02 TRIAN ENERGY ============ -->
+<section id="trian-energy" class="border-top" style="border-top:none;">
+  <div class="wrap">
+    <div class="project-number" style="margin-top:0;">02</div>
+    <div class="project-header">
+      <div>
+        <h2>Trian <em>Energy</em></h2>
+        <div class="sub">Energy · Corporate Website · Responsive Web</div>
+        <div class="meta-chips">
+          <span class="chip role">Product Designer</span>
+          <span class="chip">Discovery</span>
+          <span class="chip">Information Architecture</span>
+          <span class="chip">UX/UI</span>
+          <span class="chip">Responsive Design</span>
+          <span class="chip">Prototyping</span>
+        </div>
+        <a href="https://trianenergy.com.ng" target="_blank" rel="noopener" class="live-link" style="display:inline-flex;align-items:center;gap:8px;margin-top:20px;font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.06em;padding:10px 18px;border:1px solid currentColor;color:inherit;text-decoration:none;">VISIT LIVE SITE ↗ &nbsp;trianenergy.com.ng</a>
+      </div>
+    </div>
+
+    <div class="eyebrow">THE CHALLENGE</div>
+    <div class="editorial">
+      <div class="lead-block">
+        <h3>Turning a complex energy business into a clearer digital experience.</h3>
+      </div>
+      <div>
+        <p>Trian Energy needed a digital presence that communicated its business clearly while making its services and information easier to navigate. The challenge wasn't simply making the website look more polished — it was translating a complex business into an experience that a visitor could understand quickly.</p>
+      </div>
+    </div>
+
+    <div class="eyebrow" style="margin-top:clamp(48px,7vw,80px);">WHAT I WORKED ON</div>
+    <div class="editorial">
+      <div class="lead-block">
+        <h3>Structure first, visuals second.</h3>
+      </div>
+      <div>
+        <p>I worked through the site's information architecture, content structure and navigation before translating the direction into the visual interface. Getting the structure right before any visual decisions was what made the final experience navigable.</p>
+      </div>
+    </div>
+
+    <div class="process-flow" style="margin-top:28px;max-width:520px;">
+      <div class="process-step"><div class="process-num">01</div><div class="process-name">Requirements gathering</div></div>
+      <div class="process-step"><div class="process-num">02</div><div class="process-name">Information architecture</div></div>
+      <div class="process-step"><div class="process-num">03</div><div class="process-name">User flows</div></div>
+      <div class="process-step"><div class="process-num">04</div><div class="process-name">Wireframes</div></div>
+      <div class="process-step"><div class="process-num">05</div><div class="process-name">High-fidelity responsive design</div></div>
+      <div class="process-step"><div class="process-num">06</div><div class="process-name">Development handoff</div></div>
+    </div>
+
+    <div style="margin-top:clamp(40px,6vw,64px);display:flex;flex-direction:column;gap:24px;">
+      <img src="assets/images/c2bd0e832b.webp" alt="Trian Energy website homepage on a laptop" style="width:100%;height:auto;display:block;border-radius:8px;"/>
+      <img src="assets/images/4644ff614e.webp" alt="Trian Energy website — homepage and services pages" style="width:100%;height:auto;display:block;border-radius:8px;"/>
+    </div>
+
+    <div style="margin-top:clamp(48px,7vw,80px);">
+      <div class="eyebrow">OUTCOME</div>
+      <div class="outcome-block">
+        <span class="mono">Stakeholder feedback</span>
+        <p>After I came on board, the team gave feedback that the process from idea to launch moved faster compared with their previous experience.</p>
+        <p class="outcome-note">Rather than attaching an unsupported numerical claim to that feedback, I'm treating this as a qualitative client and stakeholder outcome.</p>
+      </div>
+    </div>
+
+    <div style="margin-top:clamp(40px,6vw,56px);">
+      <div class="eyebrow">WHAT THIS PROJECT DEMONSTRATES</div>
+      <div class="demonstrates">
+        <div class="dem-cell"><span class="mono">Skill</span><p>Information architecture</p></div>
+        <div class="dem-cell"><span class="mono">Skill</span><p>Complex content simplification</p></div>
+        <div class="dem-cell"><span class="mono">Skill</span><p>Responsive web design</p></div>
+        <div class="dem-cell"><span class="mono">Skill</span><p>Stakeholder collaboration &amp; design-to-dev workflow</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CODA ============ -->
+<section class="coda">
+  <div class="wrap">
+    <div class="eyebrow">THE WORK DOESN'T STOP HERE</div>
+    <p>These are two examples from a wider body of client work.</p>
+    <div class="industries">
+      <span class="ind-tag">Fintech</span>
+      <span class="ind-tag">Energy</span>
+      <span class="ind-tag">Healthcare</span>
+      <span class="ind-tag">E-commerce</span>
+      <span class="ind-tag">Business Services</span>
+    </div>
+  </div>
+</section>
+
+<div class="site-footer">
+  <style>
+  .site-footer{background:#F4F1E9;color:#17160F;border-top:1px solid #D9D3BF;padding:40px 0;font-family:'Instrument Sans',sans-serif;}
+  .site-footer .sf-inner{max-width:1200px;margin:0 auto;padding:0 clamp(20px,4vw,48px);display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:32px;}
+  .site-footer .sf-name{font-weight:700;font-size:14px;}
+  .site-footer .sf-sub,.site-footer .sf-copy{font-family:'Space Mono',monospace;font-size:10px;color:#87816F;letter-spacing:.06em;}
+  .site-footer .sf-sub{margin-top:4px;}
+  .site-footer .sf-copy{text-align:right;}
+  .site-footer .sf-nav{display:flex;gap:24px;justify-content:center;flex-wrap:wrap;}
+  .site-footer .sf-nav a{font-size:13px;color:#55534A;text-decoration:none;transition:color .2s;}
+  .site-footer .sf-nav a:hover{color:#17160F;}
+  @media(max-width:720px){.site-footer .sf-inner{grid-template-columns:1fr;gap:20px;text-align:left;}.site-footer .sf-nav{justify-content:flex-start;gap:16px 20px;}.site-footer .sf-copy{text-align:left;}}
+  </style>
+  <div class="sf-inner">
+    <div>
+      <div class="sf-name">Noma Edeki</div>
+      <div class="sf-sub">Product Designer · Remote</div>
+    </div>
+    <div class="sf-nav">
+      <a href="index.html#work">Work</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="assets/files/Noma-Edeki-Resume.pdf" download="Noma-Edeki-Resume.pdf" data-resume>Resume ↓</a>
+      <a href="https://www.linkedin.com/in/edeki-osarenoma-4026ba183" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    </div>
+    <div class="sf-copy">© 2026 Noma Edeki</div>
+  </div>
+</div>
+
+<script>
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold:.3 });
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+
+<script>
+(function(){var n=document.querySelector('.site-nav');if(!n)return;var b=n.querySelector('.sn-toggle');
+function set(o){n.classList.toggle('open',o);b.setAttribute('aria-expanded',o?'true':'false');b.setAttribute('aria-label',o?'Close menu':'Open menu');}
+b.addEventListener('click',function(){set(!n.classList.contains('open'));});
+n.querySelectorAll('.sn-links a').forEach(function(a){a.addEventListener('click',function(){set(false);});});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')set(false);});
+document.addEventListener('click',function(e){if(!n.contains(e.target))set(false);});
+window.addEventListener('resize',function(){if(window.innerWidth>760)set(false);});})();
+</script></body>
+</html>
